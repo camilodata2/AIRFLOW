@@ -1,0 +1,9 @@
+# Ignorar la carpeta de logs de Airflow
+logs/
+plugis/
+config/
+__pycache__/
+# Ignorar archivos generados automáticamente por Airflow
+*.pid
+*.log
+*.err
