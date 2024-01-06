@@ -1,5 +1,8 @@
 import pandas as pd
-from load import carga
+#from  load import carga
+#from load import carga
+from .load import carga
+import pytest
 
 # Cargar datos en un DataFrame utilizando la función carga del archivo load.py
 df = carga('titanic.csv')
@@ -10,6 +13,9 @@ def eliminar_columnas(df:pd.DataFrame) -> pd.DataFrame:
     df_sin_columnas = df.drop(columns=columnas_a_eliminar, errors='ignore')
     return df_sin_columnas
 
+
 # Llamar a la función para eliminar las columnas
 df_modificado = eliminar_columnas(df)
-print(df_modificado.info())  # Mostrar las primeras filas del DataFrame modificado
+#print(df_modificado.info())  # Mostrar las primeras filas del DataFrame modificado
+assert isinstance(df_modificado,pd.DataFrame)
+#

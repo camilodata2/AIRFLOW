@@ -3,7 +3,10 @@ logs/
 plugis/
 config/
 __pycache__/
+env/
+*.csv
 # Ignorar archivos generados automáticamente por Airflow
 *.pid
 *.log
 *.err
+

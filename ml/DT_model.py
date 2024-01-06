@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 
 #Importamos las librerias necesarias para la creacion del modelo
-def DT_model(**context):
+def DT_model(**kwargs):
     """
     Funcion que se encargadra de entrenar el model
 
@@ -36,5 +36,5 @@ def DT_model(**context):
     
     print('El accuracy en train es:', train_accuracy)
     print('El accuracy en test es:', test_accuracy)
-    ti = context['ti']
+    ti = kwargs['ti']
     ti.xcom_push(key='DT_model', value="Accuracy en train:" + str(train_accuracy) + ", Accuracy en test:" + str(test_accuracy))
