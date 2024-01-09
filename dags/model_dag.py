@@ -14,6 +14,8 @@ with DAG (
     dag_id='ml_dag',
     defautl_args=defautl_args,
     schedule_interval= '@daily',
+    start_date=datetime(2015,8,9),
+    catchup=False,
     description='This Machine Learning dag'
 ) as dag:
   task1 = PythonOperator(
