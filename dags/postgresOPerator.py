@@ -11,7 +11,7 @@ with DAG(
     dag_id='our_first_dag_v3',
     description='This is my first PostgresOperator',
     start_date=datetime(2023, 12, 28, 2),
-    schedule_interval='* 0 0 * *'
+    schedule_interval='@daily'
 ) as dag:
     task1 = PostgresOperator(
         task_id="checking_connection",
