@@ -1,9 +1,9 @@
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
-from load_file import df1
+from matplotlib import pyplot as plt 
+from valores_numeros import df1_sin_faltantes
 
-def matrix_De_correlacion(df1: pd.DataFrame, save_path: str) -> sns.heatmap:
+def matrix_De_correlacion(df1_sin_faltantes: pd.DataFrame, save_path: str) -> sns.heatmap:
     """Genera y guarda un heatmap de la matriz de correlación.
 
     Args:
@@ -12,7 +12,7 @@ def matrix_De_correlacion(df1: pd.DataFrame, save_path: str) -> sns.heatmap:
     """
     try:
         plt.figure(figsize=(8, 8))
-        heatmap = sns.heatmap(df1.corr(), annot=True, fmt=".0%")
+        heatmap = sns.heatmap(df1_sin_faltantes.corr(), annot=True, fmt=".0%")
         plt.savefig(save_path)
         plt.close()
         print(f"Heatmap guardado en: {save_path}")
@@ -20,4 +20,4 @@ def matrix_De_correlacion(df1: pd.DataFrame, save_path: str) -> sns.heatmap:
         print(f'Error al generar el heatmap: {str(e)}')
 
 save_path = 'corr.png'
-matrix_De_correlacion(df1, save_path)
+matrix_De_correlacion(df1_sin_faltantes, save_path)
