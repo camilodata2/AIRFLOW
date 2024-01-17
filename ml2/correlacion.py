@@ -1,7 +1,7 @@
 import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt 
-from valores_numeros import df1_sin_faltantes
+from valores_nulos import df1_sin_faltantes
 
 def matrix_De_correlacion(df1_sin_faltantes: pd.DataFrame, save_path: str) -> sns.heatmap:
     """Genera y guarda un heatmap de la matriz de correlación.
