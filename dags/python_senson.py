@@ -1,11 +1,14 @@
 from airflow import DAG 
 from airflow.sensors.python_sensor import PythonSensor
 from datetime import datetime, timedelta
+import os
 
-def load_file(file):
+def load_file(file_path):
     """Print the content of a file."""
-    with open(file) as f:
-        print("Content of %s:"% file ,f.read())
+    #with open(file) as f:
+    #    print("Content of %s:"% file ,f.read())
+    return True if os.path.exists(file_path) else False
+
 default_args={
     'owner': 'airflow',
     'start_date': timedelta(minutes=2),
@@ -21,9 +24,11 @@ with DAG (
     ti =PythonSensor(
         task_id='sensor_file',
         python_callable=load_file,
-        #poke_interval=20,
         mode="reschedule",
-        op_kwargs={'file': 'ruta_de_archivo'},
+        timeout=600,  # seconds
+        poke_interval=60,  # seconds
+        retries=3,
+        op_kwargs={'file_path': '/home/camilo/airflow/adult.csv'},
         catchup=False,
 
     )

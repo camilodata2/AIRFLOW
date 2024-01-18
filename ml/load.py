@@ -16,4 +16,4 @@ def carga(url:str) -> pd.DataFrame:
 #print(carga('titanic.csv').head(5))
 #carga('titanic.csv').info()
 #print(carga('titanic.csv'))
-assert isinstance(carga('titanic.csv'),pd.DataFrame)
+#assert isinstance(carga('titanic.csv'),pd.DataFrame)

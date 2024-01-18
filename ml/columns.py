@@ -1,7 +1,7 @@
 import pandas as pd
 #from  load import carga
 #from load import carga
-from .load import carga
+from load import carga
 import pytest
 
 # Cargar datos en un DataFrame utilizando la función carga del archivo load.py
