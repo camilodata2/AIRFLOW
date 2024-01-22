@@ -6,6 +6,7 @@ from airflow.providers.amazon.aws.operators.s3_copy_object import S3CopyObjectOp
 from airflow.providers.amazon.aws.operators.sagemaker_endpoint import SageMakerEndpointOperator
 from airflow.providers.amazon.aws.operators.sagemaker_training import SageMakerTraininOperator
 from airflow.decorators import dag, task
+from airflow.utils.edgemodifier import Label
 
 from datetime import datetime, timedelta
 
@@ -147,5 +148,5 @@ task1 = PythonOperator(
 )
 
 # Task dependencies
-download_date_task >> task1 >> sagemaker_train_model_task >> sagemaker_deploying_model_task
+Label("download_date_task") >> task1 >> Label('sagemaker_train_model_task') >> Label('sagemaker_deploying_model_task')
 
