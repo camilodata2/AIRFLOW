@@ -141,12 +141,12 @@ sagemaker_deploying_model_task = sagemaker_endpoint_operator_decorator(
         }
 )()
 
-task1 = PythonOperator(
+processing_data = PythonOperator(
     task_id='processing_data',
     python_callable=extract_titanic_data,
     dag=dag
 )
 
 # Task dependencies
-Label("download_date_task") >> task1 >> Label('sagemaker_train_model_task') >> Label('sagemaker_deploying_model_task')
+Label("download_date_task") >> Label('processing_data') >> Label('sagemaker_train_model_task') >> Label('sagemaker_deploying_model_task')
 
