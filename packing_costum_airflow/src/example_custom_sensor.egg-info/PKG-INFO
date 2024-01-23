@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: example-custom-sensor
+Version: 0.1.0
+Summary: Hooks, sensors and operators for the Movielens API.
+Author: TDA_Topoblack
+Author-email: anonymous@example.com
+License: MIT license
