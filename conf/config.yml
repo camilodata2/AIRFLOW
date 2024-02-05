@@ -1,0 +1,10 @@
+# conf/config.yaml
+
+data:
+  dataset_path: "/home/camilo/airflow/titanic.csv"
+  test_size: 0.2
+
+model:
+  algorithm: "RandomForest"
+  n_estimators: 100
+

@@ -5,8 +5,8 @@ config/
 __pycache__/
 env/
 *.csv
-mypy_cache/
-pytest_cahe/
+.mypy_cache/
+.pytest_cahe/
 # Ignorar archivos generados automáticamente por Airflow
 *.pid
 *.log

@@ -3,17 +3,18 @@ from airflow.utils.dates import days_ago
 from airflow.decorators import dag, task
 
 default_args = {
-    'owner': 'airflow',
-    'start_date': days_ago(1),
+    "owner": "airflow",
+    "start_date": days_ago(1),
 }
 
-@dag(
-    default_args=default_args, 
-    schedule_interval=None, 
-    catchup=False,
-    dag_id='complex_taskflow_example')
-def complex_taskflow_dag():
 
+@dag(
+    default_args=default_args,
+    schedule_interval=None,
+    catchup=False,
+    dag_id="complex_taskflow_example",
+)
+def complex_taskflow_dag():
     @task()
     def download_data():
         # Simular la descarga de datos
@@ -47,5 +48,6 @@ def complex_taskflow_dag():
     # Dependencias condicionales
     download_task >> process_task
     process_task >> [success_notification, failure_notification]
+
 
 dag = complex_taskflow_dag()
