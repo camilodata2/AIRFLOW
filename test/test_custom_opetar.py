@@ -2,8 +2,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 from airflow.models import DAG
 from airflow.operators.python_operator import PythonOperator
-from example_custom_sensor.operator import RedshiftOperator  # Reemplaza 'your_module' con el nombre real del módulo
-
+from example_custom_sensor.operator import RedshiftOperator
 # Mocking the PostgresHook class for testing
 class MockedPostgresHook(MagicMock):
     def __init__(self, *args, **kwargs):

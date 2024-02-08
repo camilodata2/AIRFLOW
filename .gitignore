@@ -7,6 +7,7 @@ env/
 *.csv
 .mypy_cache/
 .pytest_cahe/
+*.png
 # Ignorar archivos generados automáticamente por Airflow
 *.pid
 *.log
